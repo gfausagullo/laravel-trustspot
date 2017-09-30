@@ -22,8 +22,7 @@ class LaravelTrustSpotServiceProvider extends ServiceProvider
   public function register()
   {
     $this->registerApiClient();
-    $this->registerApiAdapter();
-    $this->registerManager();
+    $this->registerApiWrapper();
   }
 
   protected function setupConfig()
@@ -41,35 +40,27 @@ class LaravelTrustSpotServiceProvider extends ServiceProvider
 
   protected function registerApiClient()
   {
-    $this->app->singleton('laraveltrustspot.api.client', function () {
+    $this->app->singleton('laraveltrustspot.client', function () {
       return new TrustSpotApiClient();
     });
-    $this->app->alias('laraveltrustspot.api.client', TrustSpotApiClient::class);
+    $this->app->alias('laraveltrustspot.client', TrustSpotApiClient::class);
   }
 
-  protected function registerApiAdapter()
-  {
-    $this->app->singleton('laraveltrustspot.api', function (Container $app) {
-      $config = $app['config'];
-      return new TrustSpotApiWrapper($config, $app['laraveltrustspot.api.client']);
-    });
-    $this->app->alias('laraveltrustspot.api', TrustSpotApiWrapper::class);
-  }
-
-  public function registerManager()
+  protected function registerApiWrapper()
   {
     $this->app->singleton('laraveltrustspot', function (Container $app) {
-      return new LaravelTrustSpotManager($app);
+      $config = $app['config'];
+      return new TrustSpotApiWrapper($config, $app['laraveltrustspot.client']);
     });
-    $this->app->alias('laraveltrustspot', LaravelTrustSpotManager::class);
+    $this->app->alias('laraveltrustspot', TrustSpotApiWrapper::class);
   }
+
 
   public function provides()
   {
     return [
       'laraveltrustspot',
-      'laraveltrustspot.api',
-      'laraveltrustspot.api.client',
+      'laraveltrustspot.client',
     ];
   }
 

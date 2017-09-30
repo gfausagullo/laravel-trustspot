@@ -17,12 +17,12 @@ In Laravel 5.4 (or if you are not using auto-discovery) register the service pro
 ```php
 'providers' => [
     ...
-    TrustSpot\Laravel\TrustSpotServiceProvider::class,
+    Gonzaloner\LaravelTrustSpot\LaravelTrustSpotServiceProvider::class,
 ],
 
 'aliases' => [
     ...
-    'TrustSpot' => TrustSpot\Laravel\Facades\TrustSpot::class,
+    'LaravelTrustSpot' => Gonzaloner\LaravelTrustSpot\Facades\LaravelTrustSpot::class,
 ]
 ```
 

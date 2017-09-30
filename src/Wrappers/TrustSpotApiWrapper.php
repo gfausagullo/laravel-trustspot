@@ -25,8 +25,9 @@ class TrustSpotApiWrapper
     $this->client->setAuthKey($api_key);
   }
 
-  public function getCompanyReviews($limit = NULL, $offset = NULL, $sort = NULL)
+  public function company()
   {
-    return $this->client->getCompanyReviews($limit, $offset, $sort);
+    return $this->client->company();
   }
+
 }
