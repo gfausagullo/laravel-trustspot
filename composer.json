@@ -1,0 +1,32 @@
+{
+  "name": "gonzaloner/laravel-trustspot",
+  "description": "A very basic TrustSpot API client wrapper for Laravel",
+  "keywords": ["trustspot", "api", "php", "laravel"],
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Gonzalo Faus Agulló",
+      "email": "gfausagullo@gmail.com"
+    }
+  ],
+  "minimum-stability": "dev",
+  "type": "project",
+  "require": {
+    "gonzaloner/trustspot-api-php": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Gonzaloner\\LaravelTrustSpot\\": "src/"
+    }
+  },
+  "extra": {
+    "laravel": {
+      "providers": [
+        "Gonzaloner\\LaravelTrustSpot\\LaravelTrustSpotServiceProvider"
+      ],
+      "aliases": {
+        "LaravelTrustSpot": "Gonzaloner\\LaravelTrustSpot\\Facades\\LaravelTrustSpot"
+      }
+    }
+  }
+}
