@@ -2,8 +2,6 @@
 
 namespace Gonzaloner\LaravelTrustSpot;
 
-require_once __DIR__ . '/../vendor/autoload.php';
-
 use Illuminate\Contracts\Container\Container;
 use Illuminate\Support\ServiceProvider;
 use Illuminate\Foundation\Application as LaravelApplication;

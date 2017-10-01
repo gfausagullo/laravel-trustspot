@@ -26,6 +26,24 @@ In Laravel 5.4 (or if you are not using auto-discovery) register the service pro
 ]
 ```
 
+In order to add your API keys you have to execute:
+
+```bash
+$ php artisan vendor:publish --provider="Gonzaloner\LaravelTrustSpot\LaravelTrustSpotServiceProvider"
+```
+
+After that, `config/laraveltrustspot.php` will be created. Inside this file you will find all the fields that can be edited in this package.
+
+## Usage
+At the moment, only the Company Review Get API is supported.
+
+### Get company reviews
+Should be called in a view like this:
+
+```php
+{{ LaravelTrustSpot::company->get(optional int $limit, optional int $offset, optional string $sort) }}
+```
+
 ## License ##
 [MIT License](https://opensource.org/licenses/MIT)
 Copyright (c) 2017
